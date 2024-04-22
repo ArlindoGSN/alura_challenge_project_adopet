@@ -1,4 +1,4 @@
-package org.projeto.alura_challenges.domain;
+package org.projeto.alura_challenges.domain.tutor;
 
 
 import jakarta.persistence.Entity;
@@ -10,8 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.proxy.HibernateProxy;
 import org.projeto.alura_challenges.dto.TutorRegisterDTO;
+import org.projeto.alura_challenges.dto.TutorUpdateDTO;
 
 import java.util.Objects;
 
@@ -39,6 +39,20 @@ public class Tutor {
         this.phone_number = tutordto.phone_number();
         this.city = tutordto.city();
         this.about = tutordto.about();
+    }
+    public void updateTutor(TutorUpdateDTO tutorDto){
+        if (tutorDto.name() != null){
+            this.name = tutorDto.name();
+        }
+        if (tutorDto.phone_number() != null){
+            this.phone_number = tutorDto.phone_number();
+        }
+        if (tutorDto.city() != null){
+            this.city = tutorDto.city();
+        }
+        if (tutorDto.about() != null){
+            this.about = tutorDto.about();
+        }
     }
 
     @Override

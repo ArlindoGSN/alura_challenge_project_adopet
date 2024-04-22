@@ -1,6 +1,6 @@
 package org.projeto.alura_challenges.dto;
 
-import org.projeto.alura_challenges.domain.Tutor;
+import org.projeto.alura_challenges.domain.tutor.Tutor;
 
 public record TutorDetailsDTO(
         Long id,
