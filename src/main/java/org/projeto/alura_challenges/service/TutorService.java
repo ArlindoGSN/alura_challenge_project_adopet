@@ -6,6 +6,8 @@ import org.projeto.alura_challenges.dto.TutorRegisterDTO;
 import org.projeto.alura_challenges.repository.TutorRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TutorService {
 
@@ -24,4 +26,20 @@ public class TutorService {
         return new TutorDetailsDTO(tutor);
     }
 
+    public TutorDetailsDTO findTutorById(Long id) {
+
+        var tutor = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Error in location tutor"));
+
+
+        return new TutorDetailsDTO(tutor);
+    }
+
+    public List<TutorDetailsDTO> listAllTutors(){
+        var listTutor = repository.findAll().stream().map((TutorDetailsDTO::new)).toList();
+
+        return listTutor;
+
+
+    }
 }
